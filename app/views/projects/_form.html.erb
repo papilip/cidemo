@@ -1,0 +1,62 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :decription %>
+    <%= form.text_field :decription, id: :project_decription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_at %>
+    <%= form.date_select :start_at, id: :project_start_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_at %>
+    <%= form.date_select :end_at, id: :project_end_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :initial_end_at %>
+    <%= form.date_select :initial_end_at, id: :project_initial_end_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :advancement %>
+    <%= form.text_field :advancement, id: :project_advancement %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_important %>
+    <%= form.check_box :is_important, id: :project_is_important %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_by %>
+    <%= form.number_field :created_by, id: :project_created_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :updated_by %>
+    <%= form.number_field :updated_by, id: :project_updated_by %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
